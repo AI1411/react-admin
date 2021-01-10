@@ -6,23 +6,19 @@ import Menu from './secure/Menu';
 import Dashboard from './components/Dashboard';
 import {BrowserRouter, Route} from "react-router-dom";
 import Users from "./components/Users";
+import Login from './public/Login';
+import Register from './public/Register';
 
 
 function App() {
     return (
         <div className="App">
-            <Nav/>
-            <div className="container-fluid">
-                <div className="row">
-                    <Menu/>
-                    <main role="main" className="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-                        <BrowserRouter>
-                            <Route path={'/'} exact component={Dashboard} />
-                            <Route path={'/users'} component={Users} />
-                        </BrowserRouter>
-                    </main>
-                </div>
-            </div>
+            <BrowserRouter>
+                <Route path={'/'} exact component={Dashboard}/>
+                <Route path={'/users'} component={Users}/>
+                <Route path={'/login'} component={Login}/>
+                <Route path={'/register'} component={Register}/>
+            </BrowserRouter>
         </div>
     );
 }
