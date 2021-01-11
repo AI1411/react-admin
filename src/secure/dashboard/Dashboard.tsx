@@ -3,7 +3,7 @@ import Wrapper from "../Wrapper";
 
 const Dashboard = () => (
     <Wrapper>
-dashboard
+        dashboard
     </Wrapper>
 )
 
