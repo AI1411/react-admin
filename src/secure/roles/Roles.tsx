@@ -20,7 +20,7 @@ class Roles extends Component {
             await axios.delete(`roles/${id}`);
 
             this.setState({
-                users: this.state.roles.filter((r: Role) => r.id !== id)
+                roles: this.state.roles.filter((r: Role) => r.id !== id)
             })
         }
     }
@@ -31,7 +31,7 @@ class Roles extends Component {
                 <div
                     className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <div className="btn-toolbar mb-2 mb-nd-0">
-                        <Link to={'/roels/create'} className="btn btn-sm btn-outline-secondary">Add</Link>
+                        <Link to={'/roles/create'} className="btn btn-sm btn-outline-secondary">Add</Link>
                     </div>
                 </div>
                 <div className="table-responsive">
