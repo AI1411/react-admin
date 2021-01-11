@@ -50,7 +50,7 @@ class Roles extends Component {
                                     <td>{role.name}</td>
                                     <td>
                                         <div className="btn-group mr-2">
-                                            <Link to={`/users/${role.id}/edit`}  className="btn btn-sm btn-outline-secondary mr-1">Edit</Link>
+                                            <Link to={`/roles/${role.id}/edit`}  className="btn btn-sm btn-outline-secondary mr-1">Edit</Link>
                                             <a href="#" className="btn btn-sm btn-outline-secondary" onClick={() =>this.delete(role.id)}>Delete</a>
                                         </div>
                                     </td>
