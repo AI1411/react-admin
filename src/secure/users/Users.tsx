@@ -75,7 +75,7 @@ class Users extends Component<any, any> {
                                         <td>{user.role.name}</td>
                                         <td>
                                             <div className="btn-group mr-2">
-                                                <a href="#" className="btn btn-sm btn-outline-secondary mr-1">Edit</a>
+                                                <Link to={`/users/${user.id}/edit`}  className="btn btn-sm btn-outline-secondary mr-1">Edit</Link>
                                                 <a href="#" className="btn btn-sm btn-outline-secondary" onClick={() =>this.delete(user.id)}>Delete</a>
                                             </div>
                                         </td>
