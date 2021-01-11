@@ -1,11 +1,11 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Nav from './secure/Nav';
-import Menu from './secure/Menu';
-import Dashboard from './components/Dashboard';
+import Nav from './secure/components/Nav';
+import Menu from './secure/components/Menu';
+import Dashboard from './secure/dashboard/Dashboard';
 import {BrowserRouter, Route} from "react-router-dom";
-import Users from "./components/Users";
+import Users from "./secure/users/Users";
 import Login from './public/Login';
 import Register from './public/Register';
 

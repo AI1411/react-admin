@@ -19,6 +19,7 @@ class Login extends Component<any, any> {
         });
 
         localStorage.setItem('token', response.data.token);
+        axios.defaults.headers.Authorization = `Bearer ${localStorage.getItem('token')}`;
         this.setState({
             redirect: true
         })

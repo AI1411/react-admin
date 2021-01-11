@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import Nav from "./Nav";
-import Menu from "./Menu";
+import Nav from "./components/Nav";
+import Menu from "./components/Menu";
 import {BrowserRouter, Redirect, Route} from "react-router-dom";
-import Dashboard from "../components/Dashboard";
-import Users from "../components/Users";
+import Dashboard from "./dashboard/Dashboard";
+import Users from "./users/Users";
 import Login from "../public/Login";
 import axios from "axios";
 
