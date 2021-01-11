@@ -4,6 +4,8 @@ import axios from "axios";
 import {User} from "../../classes/user";
 import { Link } from "react-router-dom";
 import Paginator from "../components/Paginator";
+import Deleter from "../components/Deleter";
+import {Product} from "../../classes/product";
 
 class Users extends Component<any, any> {
     state = {
@@ -26,14 +28,10 @@ class Users extends Component<any, any> {
         await this.componentDidMount();
     }
 
-    delete = async (id: number) => {
-        if (window.confirm('削除しますか？')) {
-            await axios.delete(`users/${id}`);
-
-            this.setState({
-                users: this.state.users.filter((u: User) => u.id !== id)
-            })
-        }
+    handleDelete = async (id: number) => {
+        this.setState({
+            users: this.state.users.filter((u: User) => u.id !== id)
+        })
     }
 
     render() {
@@ -68,7 +66,7 @@ class Users extends Component<any, any> {
                                         <td>
                                             <div className="btn-group mr-2">
                                                 <Link to={`/users/${user.id}/edit`}  className="btn btn-sm btn-outline-secondary mr-1">Edit</Link>
-                                                <a href="#" className="btn btn-sm btn-outline-secondary" onClick={() =>this.delete(user.id)}>Delete</a>
+                                                <Deleter id={user.id} endpoint={'users'} handleDelete={this.handleDelete} />
                                             </div>
                                         </td>
                                     </tr>
