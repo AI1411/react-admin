@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
 import Nav from "./components/Nav";
 import Menu from "./components/Menu";
-import {BrowserRouter, Redirect, Route} from "react-router-dom";
-import Dashboard from "./dashboard/Dashboard";
-import Users from "./users/Users";
-import Login from "../public/Login";
+import {Redirect} from "react-router-dom";
 import axios from "axios";
 
 class Wrapper extends Component {
