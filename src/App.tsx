@@ -12,6 +12,7 @@ import Roles from "./secure/roles/Roles";
 import RoleCreate from "./secure/roles/RoleCreate";
 import RoleEdit from "./secure/roles/RoleEdit";
 import Products from "./secure/products/Products";
+import ProductCreate from './secure/products/ProductCreate';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
                 <Route path={'/roles/create'} exact component={RoleCreate}/>
                 <Route path={'/roles/:id/edit'} exact component={RoleEdit}/>
                 <Route path={'/products'} exact component={Products}/>
+                <Route path={'/products/create'} exact component={ProductCreate}/>
             </BrowserRouter>
         </div>
     );
