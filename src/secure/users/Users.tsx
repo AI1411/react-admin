@@ -6,8 +6,9 @@ import { Link } from "react-router-dom";
 import Paginator from "../components/Paginator";
 import Deleter from "../components/Deleter";
 import {Product} from "../../classes/product";
+import { connect } from "react-redux";
 
-class Users extends Component<any, any> {
+class Users extends Component<{user: User}> {
     state = {
         users: []
     }
@@ -34,15 +35,33 @@ class Users extends Component<any, any> {
         })
     }
 
+    actions = (id: number) => {
+        if (this.props.user.canEdit('users')) {
+            return (
+                <div className="btn-group mr-2">
+                    <Link to={`/users/${id}/edit`}  className="btn btn-sm btn-outline-secondary mr-1">Edit</Link>
+                    <Deleter id={id} endpoint={'users'} handleDelete={this.handleDelete} />
+                </div>
+            )
+        }
+    }
+
     render() {
-        return (
-            <Wrapper>
+        let addButton = null;
+
+        if (this.props.user.canEdit('users')) {
+            addButton = (
                 <div
                     className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <div className="btn-toolbar mb-2 mb-nd-0">
+                    <div className="btn-toolbar mb-2 mb-md-0">
                         <Link to={'/users/create'} className="btn btn-sm btn-outline-secondary">Add</Link>
                     </div>
                 </div>
+            );
+        }
+        return (
+            <Wrapper>
+                {addButton}
                 <div className="table-responsive">
                     <table className="table table-striped table-sm">
                         <thead>
@@ -64,10 +83,7 @@ class Users extends Component<any, any> {
                                         <td>{user.email}</td>
                                         <td>{user.role.name}</td>
                                         <td>
-                                            <div className="btn-group mr-2">
-                                                <Link to={`/users/${user.id}/edit`}  className="btn btn-sm btn-outline-secondary mr-1">Edit</Link>
-                                                <Deleter id={user.id} endpoint={'users'} handleDelete={this.handleDelete} />
-                                            </div>
+                                            {this.actions(user.id)}
                                         </td>
                                     </tr>
                                 )
@@ -83,5 +99,6 @@ class Users extends Component<any, any> {
     }
 }
 
-export default Users
+// @ts-ignore
+export default connect(state => ({user: state.user}))(Users);
 
