@@ -13,13 +13,11 @@ class Login extends Component<any, any> {
     submit = async (e: SyntheticEvent) => {
         e.preventDefault();
 
-        const response = await axios.post('login', {
+        await axios.post('login', {
             email: this.email,
             password: this.password,
         });
 
-        localStorage.setItem('token', response.data.token);
-        axios.defaults.headers.Authorization = `Bearer ${localStorage.getItem('token')}`;
         this.setState({
             redirect: true
         })
